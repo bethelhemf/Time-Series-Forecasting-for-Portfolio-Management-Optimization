@@ -2,8 +2,13 @@ numpy
 pandas
 matplotlib
 seaborn
+scikit-learn
 yfinance  # For market data
 PyPortfolioOpt  # Industry standard for portfolio optimization
 scipy  # For custom optimization
 cvxpy  # For convex optimization
 pytest  # For your unittests.yml
+yfinance
+statsmodels
+pmdarima
+tensorflow
