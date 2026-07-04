@@ -1,0 +1,9 @@
+numpy
+pandas
+matplotlib
+seaborn
+yfinance  # For market data
+PyPortfolioOpt  # Industry standard for portfolio optimization
+scipy  # For custom optimization
+cvxpy  # For convex optimization
+pytest  # For your unittests.yml
