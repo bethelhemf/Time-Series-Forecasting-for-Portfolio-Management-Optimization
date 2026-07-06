@@ -23,3 +23,7 @@ BATCH_SIZE = 32
 
 # 4. Risk Settings (For Task 3)
 RISK_FREE_RATE = 0.02
+
+# scripts/config.py (Add these lines)
+FORECAST_HORIZON = 252  # ~12 months of trading days
+CONFIDENCE_LEVEL = 0.95
