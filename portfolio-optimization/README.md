@@ -1,22 +1,22 @@
-# Prepare test data for LSTM
-inputs = tsla_data[len(tsla_data) - len(test_data) - 60:].values
-inputs = scaler.transform(inputs)
-X_test, _ = create_sequences(inputs)
-X_test = np.reshape(X_test, (X_test.shape[0], X_test.shape[1], 1))
+# Time Series Forecasting for Portfolio Management Optimization
 
-# LSTM Prediction
-lstm_forecast = model.predict(X_test)
-lstm_forecast = scaler.inverse_transform(lstm_forecast)
+An end-to-end quantitative finance pipeline that integrates Deep Learning (LSTM) price forecasting with Modern Portfolio Theory (MPT) to construct and validate optimal investment portfolios.
 
-# Metrics Function
-def evaluate(y_true, y_pred, name):
-    mae = mean_absolute_error(y_true, y_pred)
-    rmse = np.sqrt(mean_squared_error(y_true, y_pred))
-    mape = mean_absolute_percentage_error(y_true, y_pred)
-    return {"Model": name, "MAE": mae, "RMSE": rmse, "MAPE": mape}
+## 🚀 Project Overview
+This project demonstrates a production-grade workflow for financial analysis, moving from raw data acquisition to strategy backtesting. The core objective is to determine if AI-driven price forecasts can enhance portfolio risk-adjusted returns (Sharpe Ratio).
 
-results = [
-    evaluate(test_data, arima_forecast, "ARIMA"),
-    evaluate(test_data, lstm_forecast, "LSTM")
-]
-pd.DataFrame(results)
+### Key Features:
+- **Time Series Forecasting:** Comparative analysis using ARIMA (Statistical), Linear Regression (ML), and LSTM (Deep Learning).
+- **Uncertainty Quantification:** Implementation of recursive multi-step forecasting with 95% confidence intervals (Fan Charts).
+- **Portfolio Optimization:** Modern Portfolio Theory implementation using `PyPortfolioOpt` to find the Maximum Sharpe Ratio and Minimum Volatility portfolios.
+- **Backtesting:** Validation of the optimized strategy against a passive 60/40 (SPY/BND) benchmark.
+
+## 📁 Repository Structure
+```text
+portfolio-optimization/
+├── data/               # Processed CSV files (TSLA, BND, SPY)
+├── notebooks/          # Task-specific analysis (01 to 05)
+├── src/                # Modular Python logic (Models, Optimizer, Backtester)
+├── scripts/            # Global configuration (config.py)
+├── requirements.txt    # Project dependencies
+└── .gitignore          # Environment & cache exclusion
