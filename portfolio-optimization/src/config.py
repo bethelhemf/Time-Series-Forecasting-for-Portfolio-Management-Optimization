@@ -27,3 +27,7 @@ PROCESSED_DATA_DIR = Path(__file__).resolve().parent.parent / "data" / "processe
 TARGET_ASSET = 'TSLA'
 TRAIN_END_DATE = '2024-12-31'
 TEST_START_DATE = '2025-01-01'
+
+# scripts/config.py (Add these)
+RISK_FREE_RATE = 0.02  # Current approx 10-year Treasury yield
+PORTFOLIO_TICKERS = ['TSLA', 'BND', 'SPY']
